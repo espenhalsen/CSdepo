@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Status for handel <%= uuid %></title>
+  </head>
+  <body>
+    <h1>Status for handel <%= uuid %></h1>
+    <% if (!ready) { %>
+      <p>Venter på at motparten skal bekrefte at handelen er klar...</p>
+    <% } else { %>
+      <p>Motparten har bekreftet at handelen er klar!</p>
+    <% } %>
+    <form method="POST" action="/trade/<%= uuid %>/cancel">
+      <input type="hidden" name="tradeId" value="<%= uuid %>">
+      <button type="submit">Avbryt handel</button>
+    </form>
+  </body>
+</html>
